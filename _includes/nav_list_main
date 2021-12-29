@@ -38,6 +38,13 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Datastructure" %}
+                        <li><a href="/categories/Datastructure" class="">자료구조 정리노트 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
         <span class="nav__sub-title">Diary</span>
             <ul>
                 {% for category in site.categories %}
