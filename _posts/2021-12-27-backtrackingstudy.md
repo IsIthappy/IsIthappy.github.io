@@ -5,7 +5,7 @@ excerpt: "두리뭉실 백트래킹이란 무엇인가?"
 categories:
     - Algorithm
 tags:
-    - [PS, Algorithm]
+    - [Note, Algorithm]
 last_modified_at: 2021-12-27 
 ---
 

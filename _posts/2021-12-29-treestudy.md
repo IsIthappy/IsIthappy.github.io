@@ -35,6 +35,7 @@ last_modified_at: 2021-12-29
 
 2) 단순 Linked List로 표현하기
 
+3) 이진 검색 tree 구현하기
 
 ### 1) Adjency List를 통해 표현하기
 
@@ -300,6 +301,101 @@ void free_mem(node* cur)
 	if (cur->right != NULL)
 		free_mem(cur->right);
 	free(cur);
+	return;
+}
+
+```
+
+
+### 3) 이진 검색 tree 구현하기
+
+[https://www.acmicpc.net/problem/5639](https://www.acmicpc.net/problem/5639)
+
+이진 검색 트리를 구현하는 문제이다.
+
+문제에서 이진 검색 트리가 무엇인지 설명이 나와있긴 하지만 요약하자면 root 부터 이진 트리 구성대로 node들을 채워 가는데 이때 조건이 있다.
+
+1. left child key < parent key
+2. right child key > parent key
+
+이 조건을 만족하면서 계속 이어붙여나가면 된다.
+
+> 이 문제 역시 완전이진트리가 아니기 때문에 배열 기반으로 tree를 표현하기엔 어려움이 있다.
+
+```c
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node
+{
+	int v;
+	struct node* left;
+	struct node* right;
+}node;
+
+node* root;
+
+void insert_node(int);
+void postorder(node*);
+
+int main()
+{
+	int buf;
+	while (scanf("%d", &buf) != EOF)
+		insert_node(buf);
+	postorder(root);
+	return 0;
+}
+
+void insert_node(int buf)
+{
+	node* cur = (node*)malloc(sizeof(node));
+	cur->v = buf;
+	cur->left = NULL;
+	cur->right = NULL;
+	if (root == NULL)
+		root = cur;
+	else
+	{
+		node* temp = root;
+		while (temp != NULL) // 추가될 node가 들어갈 자리를 찾는 반복문이다.
+		{
+			if (temp->v < cur->v) // right child 후보
+			{
+				if (temp->right == NULL)
+				{
+					temp->right = cur;
+					break;
+				}
+				else
+					temp = temp->right;
+			}
+			else if (temp->v > cur->v) // left child 후보
+			{
+				if (temp->left == NULL)
+				{
+					temp->left = cur;
+					break;
+				}
+				else
+					temp = temp->left;
+			}
+		}
+	}
+	return;
+}
+
+void postorder(node* cur)
+{
+	if (cur->left != NULL)
+		postorder(cur->left);
+	if (cur->right != NULL)
+		postorder(cur->right);
+	printf("%d\n", cur->v);
 	return;
 }
 
