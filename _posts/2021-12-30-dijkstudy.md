@@ -6,7 +6,7 @@ categories:
     - Algorithm
 tags:
     - [Note, Algorithm]
-last_modified_at: 2021-12-30 
+last_modified_at: 2022-1-3 
 ---
 
 # 다익스트라 알고리즘 노트 목차
@@ -43,7 +43,6 @@ https://www.acmicpc.net/board/view/19865
 
 # 2. 다익스트라 알고리즘을 구현하는 두가지 방법
 
-[https://www.acmicpc.net/problem/1753](https://www.acmicpc.net/problem/1753)
 
 문제를 통하여 알아보도록 하자.
 
@@ -58,6 +57,12 @@ https://www.acmicpc.net/board/view/19865
 
 
 ### 1) 선형 탐색을 통하여 다음 노드를 취하기
+
+[https://www.acmicpc.net/problem/1916](https://www.acmicpc.net/problem/1916)
+
+
+> 이 문제의 경우에는 정점의 수가 작기 때문에 2차원 배열로 표현이 가능하며 O(V^2) 이어도 충분히 시간안에 해결할 수 있다.
+
 
 다익스트라 알고리즘의 기본형이다. 시작 노드로부터의 거리를 갱신할 dist 배열과, 방문 체크를 위한 visit 배열 두개를 준비한다.
 
@@ -86,7 +91,91 @@ https://www.acmicpc.net/board/view/19865
 (dist갱신의 경우 인접 list로 표현한다면 V가 아니라 해당 vertex의 edge수로 줄일 수 있다.)
 
 
+```c
+
+#define INF 1000000000
+#define MIN(a, b) (((a) < (b)) ? (a) : (b)) // 삼항 연산자, true 면 왼쪽, false면 오른쪽 
+
+#include <stdio.h>
+#include <stdbool.h>
+
+int dist[1001][1001]; // graph 표현할 배열
+int cost[1001]; // dist 거리 갱신
+bool visit[1001]; // 방문체크 배열
+
+void init();
+int n;
+int sv, tv;
+
+void dijk();
+
+int main()
+{
+	init();
+	dijk();
+	printf("%d\n", cost[tv]);
+	return 0;
+}
+
+void dijk()
+{
+	int cur = sv;
+	cost[cur] = 0;
+	visit[sv] = true;
+	for (int k = 0; k < n; k++) // 모든 정점을 방문할때까지 일단 돌림.
+	{
+		for (int i = 1; i <= n; i++) // 현재 정점에서 갈 수 있는 dist 갱신
+		{
+			if (dist[cur][i] != INF && visit[i] == false)
+				cost[i] = MIN(cost[i], cost[cur] + dist[cur][i]);
+		}
+		int min = INF;
+		for (int i = 1; i <= n; i++)
+		{
+			if (visit[i] == false && min > cost[i])
+			{
+				min = cost[i];
+				cur = i;
+			}
+		}
+		if (min != INF)
+			visit[cur] = true;
+		else // 모든 정점을 방문하지는 않았지만 더 이상 갈 수 있는 정점이 없는 경우.(component가 두개이상)
+			break;
+	}
+	return;
+}
+
+void init()
+{
+	int m;
+	scanf("%d\n%d", &n, &m);
+	for (int i = 1; i <= n; i++)
+	{
+		cost[i] = INF;
+		for (int j = 1; j <= n; j++)
+			dist[i][j] = INF;
+	}
+	int y,x,c;
+	for (int i = 0; i < m; i++)
+	{
+		scanf("%d %d %d", &y, &x, &c);
+		if (dist[y][x] == INF)
+			dist[y][x] = c;
+		else if(dist[y][x] > c)
+			dist[y][x] = c;
+	}
+	scanf("%d %d", &sv, &tv);
+	return;
+}
+
+```
+
 # 2. 우선 순위 큐를 활용해 다음 노드 선택하기
+
+
+[https://www.acmicpc.net/problem/1753](https://www.acmicpc.net/problem/1753)
+
 
 > 다음 노드를 선택하는 과정에서 매번 dist 배열을 뒤지지 않고 그것을 우선순위 큐를 통하여 해결하는 방법이다.
 
