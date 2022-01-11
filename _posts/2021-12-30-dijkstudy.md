@@ -138,7 +138,7 @@ void dijk()
 				cur = i;
 			}
 		}
-		if (min != INF)
+		if (min != INF) // 요요 이 방문 체크가 굉장히 중요합니다.
 			visit[cur] = true;
 		else // 모든 정점을 방문하지는 않았지만 더 이상 갈 수 있는 정점이 없는 경우.(component가 두개이상)
 			break;
@@ -183,8 +183,11 @@ void init()
 
 (우선 순위대로 나오고, dist 크기 비교를 통해 걸러내는 과정이 들어가기 때문이다 -- 중복 방문을 막을 수 있음.)
 
-> 큐에 dist 크기 값이 같이 들어가기 때문에 가능한 것임.
+> 정정하겠음! 방문 체크를 하지 않는 것이 아니라 방문 체크를 하는 방식이 달라진 것이다.
 
+**큐에서 꺼내고 난 후 dist 크기 비교를 통해 방문체크가 이루어지는것임**
+
+https://www.acmicpc.net/board/view/34516 (설명 매우 잘해주심.)
 
 **시간 복잡도**
 
@@ -265,7 +268,7 @@ void dijk()
 	{
 		int cur_v = heap[1].vertex, cur_dist = heap[1].d;
 		pop_heap();
-		if (cur_dist > dist[cur_v]) // dist 크기 비교를 통해서 불필요한 방문을 쳐내는 것이다.
+		if (cur_dist > dist[cur_v]) // dist 크기 비교를 통해서 불필요한 방문을 쳐내는 것이다. 즉, 이게 방문 체크해주고 있는거임.
 			continue;
 		if (list[cur_v] != NULL) // 현재 노드에서 갈 수 있는 노드들의 dist 갱신
 		{
@@ -396,6 +399,8 @@ void free_mem()
 
 
 # 4. 후기
+
+> 다익스트라 알고리즘에서는 방문체크를 해주는 것이 굉장히 중요합니다.
 
 다익스트라 알고리즘의 시간복잡도가 이게 맞는지는 잘 모르겠다.
 
