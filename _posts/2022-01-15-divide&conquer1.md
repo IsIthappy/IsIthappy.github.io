@@ -3,9 +3,9 @@ title: "행렬 제곱"
 excerpt: "DP처럼 생각할 수 있지만 DP랑은 차이가 있는 알고리즘"
 
 categories:
-    - Divide&Conquer
+    - DivideConquer
 tags:
-    - [PS, Divide&Conquer]
+    - [PS, DivideConquer]
 last_modified_at: 2022-01-15 
 ---
 # 행렬 제곱 문제 풀이

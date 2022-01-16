@@ -46,8 +46,15 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Divide&Conquer" %}
-                        <li><a href="/categories/Divide&Conquer" class="">Divide&Conquer ({{category[1].size}})</a></li>
+                    {% if category[0] == "DivideConquer" %}
+                        <li><a href="/categories/DivideConquer" class="">DivideConquer ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "samsung" %}
+                        <li><a href="/categories/samsung" class="">samsung ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
