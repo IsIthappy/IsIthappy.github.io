@@ -426,3 +426,7 @@ bool check_parent(int a, int b)
 # 4. 후기
 
 그래프가 하나의 component에 속하는지 판별 할 수 있는 union-find 알고리즘... 굉장히 효율적이고 좋은 알고리즘 같다. 이렇게 또 하나를 알아가는구만!
+
+[https://www.acmicpc.net/problem/1976](https://www.acmicpc.net/problem/1976)
+
+이것도 문제 상황에 맞춰 하나의 component에 속하는지만 판별하면 되네? 라는 생각에서 출발해가지고 풀 수 있는 기본적인 union - find 적용 문제이다.
