@@ -60,6 +60,13 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
+                    {% if category[0] == "Dijkstra" %}
+                        <li><a href="/categories/Dijkstra" class="">Dijkstra ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
                     {% if category[0] == "samsung" %}
                         <li><a href="/categories/samsung" class="">samsung ({{category[1].size}})</a></li>
                     {% endif %}
