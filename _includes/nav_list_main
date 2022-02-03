@@ -60,6 +60,13 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
+                    {% if category[0] == "two_pointer" %}
+                        <li><a href="/categories/two_pointer" class="">two_pointer ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
                     {% if category[0] == "Dijkstra" %}
                         <li><a href="/categories/Dijkstra" class="">Dijkstra ({{category[1].size}})</a></li>
                     {% endif %}
