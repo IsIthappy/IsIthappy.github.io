@@ -89,6 +89,16 @@
         <span class="nav__sub-title">Note</span>
             <ul>
                 {% for category in site.categories %}
+                    {% if category[0] == "Cpp" %}
+                        <li><a href="/categories/Cpp" class="">Cpp 정리노트 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% for category in site.categories %}
+                    {% if category[0] == "STL" %}
+                        <li><a href="/categories/STL" class="">STL 정리노트 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% for category in site.categories %}
                     {% if category[0] == "Algorithm" %}
                         <li><a href="/categories/Algorithm" class="">알고리즘 정리노트 ({{category[1].size}})</a></li>
                     {% endif %}
