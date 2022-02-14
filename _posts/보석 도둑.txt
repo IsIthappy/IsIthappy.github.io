@@ -1,11 +1,7 @@
 1. set STL 정리하고, ---> STL 정리 노트
 2. 우선순위 큐 STL 정리하기
-4. 반복자란 무엇인지 정리하고 ----> C++ 정리노트
 5. 연산자 오버로딩 정리하기 ---> 우선순위 큐 비교 클래스 사용자 정의로 바꿀 때 필요한 개념임.
 
-
-https://inpages.tistory.com/135#:~:text=%EB%B0%98%EB%B3%B5%EC%9E%90%EB%8A%94%20%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%97%90%20%EC%A0%80%EC%9E%A5%EB%90%9C,%EC%97%90%EB%8F%84%20%EC%97%AC%EB%9F%AC%20%EC%A2%85%EB%A5%98%EA%B0%80%20%EC%9E%88%EB%8B%A4.
--> 반복자 설명
 
 https://hoondev.tistory.com/53
 -> lower bound 설명 되게 잘 나와있음.
