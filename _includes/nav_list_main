@@ -60,6 +60,13 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
+                    {% if category[0] == "BinarySearch" %}
+                        <li><a href="/categories/BinarySearch" class="">BinarySearch ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
                     {% if category[0] == "DivideConquer" %}
                         <li><a href="/categories/DivideConquer" class="">DivideConquer ({{category[1].size}})</a></li>
                     {% endif %}
