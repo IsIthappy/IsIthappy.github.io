@@ -53,6 +53,13 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
+                    {% if category[0] == "Topological_sort" %}
+                        <li><a href="/categories/Topological_sort" class="">Topological_sort ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
                     {% if category[0] == "Stack" %}
                         <li><a href="/categories/Stack" class="">Stack ({{category[1].size}})</a></li>
                     {% endif %}
