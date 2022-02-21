@@ -1,6 +1,6 @@
 ---
 title: "줄 세우기"
-excerpt: "위상정렬... 별거 없다, dfs 도중 cycle 존재 여부 check!"
+excerpt: "dfs활용 위상 정렬 & dfs 도중 cycle 존재 여부 check!"
 
 categories:
     - Topological_sort
